@@ -123,8 +123,7 @@ and the filesystems.
 
 ### 3.12 Filesystems (L)
 *Add:* a File object type in the Object namespace and a VFS/IO-manager path (`\Device\Harddisk0\Partition1`, drive/mount names); **FAT32**
-first (it is what the ESP already is, so the kernel and tools can read the boot disk), then one real filesystem (ext2 as a read/write
-starting point, or a native design with journaling); file syscalls (create/open/read/write/seek/stat/enumerate/rename/delete), memory-mapped
+first (it is what the ESP already is, so the kernel and tools can read the boot disk), then one custom filesystem LordFS (yes, I am crazy); file syscalls (create/open/read/write/seek/stat/enumerate/rename/delete), memory-mapped
 files hooked into 3.8, file-system permissions tied to 3.7.
 
 ### 3.13 Input, console and graphics (L)
