@@ -14,6 +14,17 @@
 
 ---
 
-## Getting Started
+## What is ready and what is missing?
 
-*(Coming soon as the project evolves!)*
+In very shortcut, kernel is booting and has working HAL, Memory, Object Manager and Process Manager but still is missing many stuff like FPU/SSE/AVX support or Multi-CPU scheduling.
+More info is in ROADMAP.
+
+## How to build it?
+
+You have to have rust compiler compatible with rust 2024 and Linux.
+in linux using ./build.sh you will build this project into folder dist/.
+
+## How to run it?
+
+You will need to build one more project Lord Boot which is custom bootloader because kernel is compiled not in standard format so limine or other bootloader won't know it.
+Test tools are in other repo too.
