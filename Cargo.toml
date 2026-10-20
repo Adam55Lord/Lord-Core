@@ -1,0 +1,32 @@
+# SPDX-License-Identifier: GPL-2.0-only
+# Copyright (C) 2026 Adam55Lord
+
+[package]
+name = "lord-core"
+version = "0.11.0"
+authors = ["Adam55Lord"]
+license = "GPL-2.0-only"
+edition = "2024"
+rust-version = "1.85"
+description = "Lord Core by Adam55Lord: a hybrid x86_64 kernel with an IPC Manager (message ports, shared memory), a Process Manager (preemptive scheduler), an Object Manager, a HAL (serial, framebuffer, GDT, TSS/IST, IDT, paging, LAPIC, ACPI, HPET, LAPIC timer, SMP), a bootloader-independent boot interface (Lord Boot backend), a physical and virtual memory manager and a kernel heap"
+
+[[bin]]
+name = "lord-core"
+path = "src/main.rs"
+test = false
+bench = false
+
+[profile.dev]
+panic = "abort"
+opt-level = 1
+
+[profile.release]
+panic = "abort"
+opt-level = 2
+
+# Boot backends: exactly one must be enabled. The kernel proper never names a
+# bootloader; see src/boot/mod.rs and docs/20-bootloader-porting.md to add another.
+[features]
+default = ["boot-lord-boot"]
+# Lord Boot (boot/) booting the kernel as an LXF image: the default.
+boot-lord-boot = []
